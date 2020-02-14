@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import "dotenv/config";
 import { createConnection } from "typeorm";
 import cors from "cors";

@@ -6,11 +6,11 @@ module.exports = {
   username: "postgres",
   password: "password",
   synchronize: true,
-  entities: ["src/entity/**/*.ts"],
+  entities: ["src/models/*.ts"],
   migrations: ["src/migration/**/*.ts"],
   subscribers: ["src/subscriber/**/*.ts"],
   cli: {
-    entitiesDir: "src/entity",
+    entitiesDir: "src/models",
     migrationsDir: "src/migration",
     subscribersDir: "src/subscriber"
   }
