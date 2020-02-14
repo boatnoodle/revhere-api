@@ -7,8 +7,8 @@ import express from "express";
 import { createServer } from "http";
 import { ApolloServer, AuthenticationError } from "apollo-server-express";
 
-// import schema from "./schema";
-// import resolvers from "./resolvers";
+import typeDefs from "./types";
+import resolvers from "./resolvers";
 
 const startServer = async () => {
   const app = express();
@@ -34,7 +34,7 @@ const startServer = async () => {
   const server = new ApolloServer({
     introspection: true,
     playground: true,
-    typeDefs: schema,
+    typeDefs,
     resolvers
     // formatError: error => {
     //   // remove the internal sequelize error message
@@ -77,13 +77,11 @@ const startServer = async () => {
 
   const isTest = !!process.env.TEST_DATABASE;
   const isProduction = !!process.env.DATABASE_URL;
-  const port = process.env.PORT || 8000;
+  const port = process.env.PORT || 4000;
 
   const httpServer = createServer(app);
   httpServer.listen({ port }, (): void =>
-    console.log(
-      `\n🚀      GraphQL is now running on http://localhost:${port}/graphql`
-    )
+    console.log(`🚀 GraphQL is now running on http://localhost:${port}/graphql`)
   );
 };
 

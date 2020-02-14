@@ -1,8 +1,6 @@
-import { mergeSchemas } from "graphql-tools";
+import { mergeTypes } from "merge-graphql-schemas";
 import userSchema from "./user";
 
-const schema = mergeSchemas({
-  schemas: [userSchema]
-});
+const types = [userSchema];
 
-export default schema;
+export default mergeTypes(types, { all: true });

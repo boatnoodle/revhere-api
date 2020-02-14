@@ -1,6 +1,10 @@
 module.exports = {
-  type: "mongodb",
-  url: process.env.MONGO_URI,
+  type: "postgres",
+  host: "localhost",
+  port: 5432,
+  database: "revhere",
+  username: "postgres",
+  password: "password",
   synchronize: true,
   entities: ["src/entity/**/*.ts"],
   migrations: ["src/migration/**/*.ts"],

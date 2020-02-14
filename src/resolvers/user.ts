@@ -1,6 +1,7 @@
 export default {
-  Query: {},
-  Mutation: {
-    register(root, { email, name, role }) {}
+  Query: {
+    hello: (root, arg) => {
+      return "hello!";
+    }
   }
 };
