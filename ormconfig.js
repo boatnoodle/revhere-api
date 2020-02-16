@@ -20,9 +20,8 @@ if (NODE_ENV !== "production") {
 } else {
   module.exports = {
     type: "postgres",
-    host: "db",
-    port: 5432,
-    url: "postgres://postgres:password@postgres:5432/revhere_production",
+    url:
+      "postgres://mrtkkull:yg5u0UhkQrIlfeLe0eo-lbXJUnr91MKn@satao.db.elephantsql.com:5432/mrtkkull",
     synchronize: false,
     entities: ["src/models/*.ts"],
     migrations: ["src/migration/**/*.ts"],

@@ -6,10 +6,15 @@ export default {
     hello: (root, arg) => {
       return "hello!";
     },
-    user: (_, { id }) => {
+    users: async () => {
       const repository = getRepository(User);
-      const user = repository.find({ id });
+      const users = await repository.find({});
 
+      return users;
+    },
+    user: async (_, { id }) => {
+      const repository = getRepository(User);
+      const user = await repository.findOne({ id });
       return user;
     }
   },

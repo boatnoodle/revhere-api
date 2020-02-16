@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node dist/index.js",
-    "start:dev": "NODE_ENV=development nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
+    "dev": "NODE_ENV=development nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/index.ts",
     "build": "rimraf dist && tsc",
     "test": "NODE_ENV=test jest --watch",
     "start:db": "./src/scripts/db.sh"
