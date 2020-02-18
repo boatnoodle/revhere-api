@@ -28,9 +28,14 @@ jobs:
 
     steps:
       - checkout
-      - add_ssh_keys
+      - add_ssh_keys:
+          fingerprints:
+            - "fc:ba:c1:2f:f4:44:ab:06:74:28:8f:51:3a:bf:e6:51"
+
+      - run: ssh-keyscan $DROPLET_IP >> ~/.ssh/known_hosts
+
       - run:
-          name: Deploy to dokku
+        name: Deploy to dokku
           command: |
             git remote add production dokku@$DROPLET_IP:$APP_NAME
             git push production master
