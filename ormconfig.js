@@ -1,4 +1,5 @@
 const NODE_ENV = process.env.NODE_ENV || "production";
+
 if (NODE_ENV !== "production") {
   module.exports = {
     type: "postgres",
@@ -20,8 +21,7 @@ if (NODE_ENV !== "production") {
 } else {
   module.exports = {
     type: "postgres",
-    url:
-      "postgres://mrtkkull:yg5u0UhkQrIlfeLe0eo-lbXJUnr91MKn@satao.db.elephantsql.com:5432/mrtkkull",
+    url: process.env.DATABASE_URL,
     synchronize: false,
     entities: ["src/models/*.ts"],
     migrations: ["src/migration/**/*.ts"],
