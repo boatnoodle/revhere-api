@@ -31,7 +31,10 @@ jobs:
 
       - run:
           name: Deploy to dokku
-          command: git push -f dokku@$DROPLET_IP:$APP_NAME master
+          command: |
+            ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
+            git remote add production dokku@$DROPLET_IP:$APP_NAME
+            git push production master
 
 workflows:
   version: 2
