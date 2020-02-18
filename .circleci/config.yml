@@ -32,12 +32,12 @@ jobs:
           fingerprints:
             - "fc:ba:c1:2f:f4:44:ab:06:74:28:8f:51:3a:bf:e6:51"
 
-      - run: ssh-keyscan $DROPLET_IP >> ~/.ssh/known_hosts
+      - run: ssh-keyscan 165.22.106.105 >> ~/.ssh/known_hosts
 
       - run:
           name: Deploy to dokku
           command: |
-            git remote add production dokku@$DROPLET_IP:$APP_NAME
+            git remote add production dokku@165.22.106.105:revhere-api
             git push production master
 
 workflows:
