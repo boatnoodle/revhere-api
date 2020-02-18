@@ -28,11 +28,10 @@ jobs:
 
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "fc:ba:c1:2f:f4:44:ab:06:74:28:8f:51:3a:bf:e6:51"
-
-      - run: ssh-keyscan 178.128.86.16 >> ~/.ssh/known_hosts
+      - add_ssh_keys
+      - run:
+          name: Keyscan Github (HACK)
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
       - run:
           name: Deploy to dokku
