@@ -28,11 +28,10 @@ jobs:
 
     steps:
       - checkout
-
+      - add_ssh_keys
       - run:
           name: Deploy to dokku
           command: |
-            ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@$DROPLET_IP
             git remote add production dokku@$DROPLET_IP:$APP_NAME
             git push production master
 
