@@ -38,7 +38,7 @@ jobs:
           name: Deploy to dokku
           command: |
             git remote add production dokku dokku@165.22.106.105:revhere-api
-            git push production master
+            git push dokku master
 
 workflows:
   version: 2
