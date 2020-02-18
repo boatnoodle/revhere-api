@@ -33,6 +33,10 @@ jobs:
             - "aa:22:6f:b1:ca:79:0a:03:4b:5d:27:11:72:9e:85:13"
 
       - run:
+          name: Keyscan Github (HACK)
+          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+
+      - run:
           name: Deploy to dokku
           command: |
             git remote add dokku dokku@178.128.86.161:revhere-api
