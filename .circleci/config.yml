@@ -32,7 +32,7 @@ jobs:
           fingerprints:
             - "fc:ba:c1:2f:f4:44:ab:06:74:28:8f:51:3a:bf:e6:51"
 
-      # - run: ssh-keyscan 165.22.106.105 >> ~/.ssh/known_hosts
+      - run: ssh-keyscan 178.128.86.16 >> ~/.ssh/known_hosts
 
       - run:
           name: Deploy to dokku
