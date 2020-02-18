@@ -34,8 +34,8 @@ jobs:
       - run:
           name: Deploy to dokku
           command: |
-            - git remote add production dokku@$DROPLET_IP:$APP_NAME
-            - git push production master
+            git remote add production dokku@$DROPLET_IP:$APP_NAME
+            git push production master
 
 workflows:
   version: 2
