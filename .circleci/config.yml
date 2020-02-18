@@ -38,6 +38,7 @@ jobs:
           name: Deploy to dokku
           command: |
             git remote add dokku dokku@178.128.86.161:revhere-api
+            ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no
             git push dokku master
 
 workflows:
