@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   # build:
   #   docker:
@@ -24,23 +24,20 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:12.14.0
+      - image: buildpack-deps:trusty
 
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - "aa:22:6f:b1:ca:79:0a:03:4b:5d:27:11:72:9e:85:13"
-
+      # - add_ssh_keys:
+      #     fingerprints:
+      #       - "aa:22:6f:b1:ca:79:0a:03:4b:5d:27:11:72:9e:85:13"
       - run:
-          name: Keyscan Github (HACK)
-          command: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+          name: Add Dokku to known_hosts
+          command: ssh-keyscan -H 178.128.86.161 >> ~/.ssh/known_hosts
 
       - run:
           name: Deploy to dokku
-          command: |
-            git remote add dokku dokku@178.128.86.161:revhere-api
-            git push dokku master
+          command: git push -f dokku@178.128.86.161:revhere-api master
 
 workflows:
   version: 2
